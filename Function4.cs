@@ -35,7 +35,7 @@ namespace FunctionApp6
             var receiver = new MessageReceiver(ServiceBusConnectionString, QueueNameDeadletter, ReceiveMode.ReceiveAndDelete);
 
             var messages = await receiver.ReceiveAsync(30);
-            for (int i = 0; i < messages.Count; i++            {
+            for (int i = 0; i < messages.Count; i++ )           {
                 log.LogInformation("sending message " + i);
                 //Only send messages that have a delivery count less than the count set
                 if (messages[i].SystemProperties.DeliveryCount < MaximumDeliveryCount)
