@@ -9,7 +9,7 @@ namespace FunctionApp6
     {
         //This is a test function to force messages to the DLQ
         [FunctionName("Function3")]
-        public static void Run([ServiceBusTrigger("%myqueuereal%", Connection = "ServiceBusConnectionString")] string myQueueItem, ILogger log)
+        public static void Run([ServiceBusTrigger("%myqueuereal%", Connection = "ServiceBusConnectionString",IsSessionsEnabled = true)] string myQueueItem, ILogger log)
         {
 
             log.LogInformation($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
